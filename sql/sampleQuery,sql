@@ -1,0 +1,148 @@
+
+CREATE SCHEMA `salespro` ;
+
+create table admins(
+ID iNT PRIMARY KEY Auto_Increment,
+name varchar(255),
+password varchar(255)
+);
+
+Insert into admins(name,password)values
+("miguellayos", "miguel2003");
+
+CREATE TABLE products (
+     code INT PRIMARY KEY AUTO_INCREMENT,
+     category_id INT,
+     name VARCHAR(255),
+     description VARCHAR(255),
+     price INT,
+     stock_quantity INT,
+     sold_quantity INT,
+     reorder_point INT
+)AUTO_INCREMENT = 1000;
+
+INSERT INTO products(category_id, name, description, price, stock_quantity, sold_quantity, reorder_point)values
+(1, "RJ45", "a good wire",700, 200, 0, 10);
+
+
+
+CREATE TABLE customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    contact VARCHAR(255),
+    address VARCHAR(255)
+);
+
+INSERT INTO customers (name, contact, address) VALUES
+('Juan dela Cruz', '09123456789', '123 Maharlika St, Quezon City'),
+('Maria Santos', '09123456788', '456 Rizal Ave, Manila'),
+('Pedro Gonzales', '09123456787', '789 Taft Ave, Makati City'),
+('Luisa Reyes', '09123456786', '012 Roxas Blvd, Pasay City'),
+('Andres Aquino', '09123456785', '345 EDSA, Mandaluyong City'),
+('Carmen Garcia', '09123456784', '678 Boni Ave, San Juan City'),
+('Josefa Torres', '09123456783', '901 Shaw Blvd, Pasig City'),
+('Ramon Fernandez', '09123456782', '234 Ortigas Ave, Taguig City'),
+('Emilio Santos', '09123456781', '567 C5 Road, Paranaque City'),
+('Ines Reyes', '09123456780', '890 Sucat Road, Muntinlupa City'),
+('Maria Cristina Cruz', '09123456779', '123 Alabang-Zapote Road, Las Pinas City'),
+('Ricardo Hernandez', '09123456778', '456 Marcos Highway, Antipolo City'),
+('Gloria Mercado', '09123456777', '789 Commonwealth Ave, Quezon City'),
+('Arnoldo delos Santos', '09123456776', '012 Quezon Ave, Manila'),
+('Julia dela Cruz', '09123456775', '345 España Blvd, Manila'),
+('Emmanuel Gonzales', '09123456774', '678 Aurora Blvd, Quezon City'),
+('Consuelo Reyes', '09123456773', '901 P. Tuazon Blvd, Quezon City'),
+('Pedro Aquino', '09123456772', '234 E. Rodriguez Sr. Ave, Quezon City'),
+('Anita Garcia', '09123456771', '567 Tomas Morato Ave, Quezon City'),
+('Daniel Torres', '09123456770', '890 Katipunan Ave, Quezon City');
+
+CREATE TABLE salesreps (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    contact VARCHAR(255),
+    address VARCHAR(255)
+);
+
+INSERT INTO salesreps(name, contact, address) Values
+('Manuel Rodriguez', '09123456769', '123 P. Burgos St, Makati City'),
+('Beatriz Gomez', '09123456768', '456 Ayala Ave, Makati City'),
+('Santiago Fernandez', '09123456767', '789 McKinley Road, Taguig City'),
+('Elena Rivera', '09123456766', '012 Bonifacio High Street, Taguig City'),
+('Diego Vargas', '09123456765', '345 Greenbelt, Makati City'),
+('Isabela Morales', '09123456764', '678 Rockwell, Makati City'),
+('Felipe Lopez', '09123456763', '901 Glorietta, Makati City'),
+('Ana Perez', '09123456762', '234 Mall of Asia, Pasay City'),
+('Lorenzo Ramirez', '09123456761', '567 Blue Bay Walk, Pasay City'),
+('Isabel Cruz', '09123456760', '890 Newport City, Pasay City'),
+('Juan Carlos Santos', '09123456759', '123 Resorts World Manila, Pasay City'),
+('Carmela Gonzalez', '09123456758', '456 Circuit Makati, Makati City'),
+('Francisco Reyes', '09123456757', '789 Ayala Malls, Makati City'),
+('Alicia Fernandez', '09123456756', '012 SM Aura Premier, Taguig City'),
+('Miguel Torres', '09123456755', '345 Venice Grand Canal Mall, Taguig City'),
+('Gabriela Rivera', '09123456754', '678 Uptown Mall, Taguig City'),
+('Javier Martinez', '09123456753', '901 Eastwood City, Quezon City'),
+('Rafaela Rodriguez', '09123456752', '234 Bonifacio Global City, Taguig City'),
+('Eduardo Gomez', '09123456751', '567 Shangri-La Plaza, Mandaluyong City'),
+('Clara Ramirez', '09123456750', '890 Robinsons Galleria, Quezon City');
+
+CREATE TABLE transactions (
+     id INT PRIMARY KEY AUTO_INCREMENT,
+     salesrep_id INT,
+     customer_id INT,
+     product_code INT,
+     discount_code INT,
+     date DATETIME,
+     quantity INT,
+     total_amount INT
+);
+
+
+
+INSERT INTO transactions(salesrep_id, customer_id, product_code, discount_code, date, quantity, total_amount)
+VALUES (1, 1, 1000, 1000, '2022-04-01 02:06:03', 10,  100);
+
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255)
+);
+
+INSERT INTO categories(name)values
+("Electronics"),
+("Clothing"),
+("Books"),
+("Home and Kitchen"),
+("Sports and Outdoors"),
+("Beauty and Personal Care"),
+("Toys and Games"),
+("Automotive"),
+("Health and Household"),
+("Pet Supplies"),
+("Electronics Accessories"),
+("Furniture"),
+("Office Supplies"),
+("Baby Products"),
+("Outdoor Living"),
+("Tools and Home Improvement"),
+("Groceries"),
+("Musical Instruments"),
+("Jewelry"),
+("Watches"),
+("Handbags and Wallets"),
+("Shoes"),
+("Sporting Goods"),
+("Exercise and Fitness"),
+("Home Décor"),
+("Kitchen and Dining"),
+("Bedding and Bath"),
+("Luggage and Travel Gear"),
+("Camera and Photo"),
+("Cell Phones and Accessories");
+
+create table discounts(
+code INT PRIMARY KEY Auto_Increment,
+product_code INT,
+discount_percent INT
+)AUTO_INCREMENT = 1000;
+
+INSERT INTO discounts(product_code, discount_percent) values
+(1000, 30);
