@@ -41,7 +41,7 @@ import java.util.List;
         }
 
         public DiscountDTO getDiscountByCode(int CODE) {
-
+            
             try {
                 preparedStatement = connection.prepareStatement("Select * FROM discounts Where code = ?");
                 preparedStatement.setInt(1, CODE);
