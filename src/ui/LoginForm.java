@@ -46,10 +46,8 @@ public class LoginForm extends JPanel {
                     usernameField.setForeground(Color.black);
 
 
-
                 }
             }
-
             @Override
             public void focusLost(FocusEvent e) {
                 if (usernameField.getText().isEmpty()) {
@@ -83,10 +81,8 @@ public class LoginForm extends JPanel {
             @Override
             public void focusGained(FocusEvent e) {
                 if (passwordField.getText().equals("Password")) {
-
                     passwordField.setText("");
                     passwordField.setForeground(Color.black);
-
 
 
                 }
@@ -94,13 +90,11 @@ public class LoginForm extends JPanel {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (passwordField.getText().isEmpty()) {
-
+                if (passwordField.getText().isEmpty()){
+                    passwordField.setText("Password");
                     passwordField.setForeground(Color.GRAY);
-                    ;
-
-
                 }
+
             }
         });
         passwordField.setBorder(null);

@@ -448,9 +448,9 @@ public class Customers extends JPanel {
                                DiscountDTO discountToCheck = discountDAO.getDiscountByCode(Integer.parseInt(discountusedField.getText()));
 
                                if (boughtbytext.isEmpty() || productboughtText.isEmpty()|| quantityText.isEmpty()|| soldbyText.isEmpty()) {
-
                                    JOptionPane.showMessageDialog(null, "Please fill in the text field.", "Error", JOptionPane.ERROR_MESSAGE);
-                               }else if(Integer.parseInt(discountusedField.getText()) == 0){
+                               }
+                               else if(Integer.parseInt(discountusedField.getText()) == 0){
                                    if(productDAO.getProductByCode(Integer.parseInt(productboughtField.getText())) != null && salesrepDAO.getSalesrepByID(Integer.parseInt(soldbyField.getText())) != null){
 
                                        int salesrepID = Integer.parseInt(soldbyField.getText());
@@ -463,8 +463,6 @@ public class Customers extends JPanel {
                                        int productPrice = product.getPrice();
                                        DiscountDTO discounTOUse = new DiscountDTO(1,1,1);
                                        int totalAmount = (int) Math.round((productPrice  * (discounTOUse.getDiscountPercent() / 100.0)) * quantity);
-
-
 
                                        if(productDAO.getProductByCode(productCode).getStockQuantity() - quantity >= 0){
                                            transactionDAO.addCustomerPurchaseTransaction(new TransactionDTO(salesrepID, customerID, productCode, date,quantity, discountUsed, totalAmount));
@@ -498,8 +496,6 @@ public class Customers extends JPanel {
                                        DiscountDTO discounTOUse = discountDAO.getDiscountByCode(discountUsed);
                                        int totalAmount = (int) Math.round((productPrice  * (discounTOUse.getDiscountPercent() / 100.0)) * 4);
 
-
-
                                        if(productDAO.getProductByCode(productCode).getStockQuantity() - quantity >= 0){
                                            transactionDAO.addCustomerPurchaseTransaction(new TransactionDTO(salesrepID, customerID, productCode, date,quantity, discountUsed, totalAmount));
                                            JOptionPane.showMessageDialog(null, "Purchase Transaction is succesfully recorded.", "Added Purchase", JOptionPane.PLAIN_MESSAGE);
@@ -517,24 +513,9 @@ public class Customers extends JPanel {
                                }
 
 
-
-
-
-
-
-
-                               /*log.dispose();
-                               purchaseDialog.dispose();
-                               records.remove(records.customersPanel);
-                               records.add(new Customers(frame,records), "Customers");
-                               records.showPanel("Customers");
-                               frame.revalidate();
-                               frame.repaint();*/
-
                            });
                            buttonPanel.add(submitButton);
                            purchaseDialog.add(buttonPanel, BorderLayout.SOUTH);
-
                            purchaseDialog.setVisible(true);
 
                        });

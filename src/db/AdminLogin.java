@@ -38,23 +38,11 @@ public class AdminLogin {
                 if (password.equals(storedHashedPassword)){
                     return true;
                 }
-
-
             }
-
-// Close the resources
-
-
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-        // repare a SQL query to retrieve the hashed password for the given username
-
-
         return false;
     }
-
 }

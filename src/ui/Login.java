@@ -49,31 +49,3 @@ public class Login extends JPanel {
 
 }
 
-/* class ImagePanel extends JPanel {
-    private BufferedImage image;
-
-    public ImagePanel(String imagePath) {
-        try {
-            image = ImageIO.read(new File(imagePath));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (image != null) {
-            g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-        }
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        if (image != null) {
-            return new Dimension(image.getWidth(), image.getHeight());
-        }
-        return super.getPreferredSize();
-    }
-
-}*/
